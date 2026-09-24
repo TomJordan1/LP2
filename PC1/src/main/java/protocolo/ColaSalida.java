@@ -6,11 +6,11 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-// Productor-consumidor (semana 3) para escribir en UN socket.
 //   PRODUCTORES: cámara, micrófono, chat, otros participantes (muchos hilos)
 //   CONSUMIDOR : este Runnable, el único que escribe en el socket
 // Tiempo real: si la red va lenta se DESCARTA video/audio viejo en vez de acumular retraso.
 // Se usa igual en el servidor (un canal por participante) y en el cliente.
+
 public class ColaSalida implements Runnable, SalidaPaquetes {
 
     private static final int CAPACIDAD = 64;

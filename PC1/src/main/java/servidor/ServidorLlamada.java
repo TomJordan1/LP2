@@ -17,10 +17,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
-// Servidor TCP con pool LIMITADO (semana 4) para chat + videollamada.
-//
 //  accept() ──► ¿hay cupo? (Semaphore) ──sí──► pool.execute(ManejadorParticipante)
 //                                      └─no──► ERROR|SERVIDOR_LLENO y cerrar
+
 public class ServidorLlamada {
 
     private final int puerto;

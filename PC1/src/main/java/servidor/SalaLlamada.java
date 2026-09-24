@@ -12,7 +12,8 @@ import java.util.concurrent.ConcurrentHashMap;
 // La "sala" de la videollamada: quién está dentro y retransmisión de video/audio.
 // El servidor NO procesa imágenes ni sonido: solo reenvía (modelo relay / SFU simple).
 //
-//   ana ──VIDEO──► Sala ──► bruno, carla, dario   (todos menos el que lo envió)
+//   tom ──VIDEO──► Sala ──► otroTom, ricardo, raul   (todos menos el que lo envió)
+
 public class SalaLlamada {
 
     private final Map<String, CanalParticipante> participantes = new ConcurrentHashMap<>();

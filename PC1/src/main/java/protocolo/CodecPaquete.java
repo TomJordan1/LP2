@@ -11,6 +11,7 @@ import java.io.IOException;
 //   ┌──────────┬──────────────────┬──────────────┬──────────────────┐
 //   │ tipo (1) │ origen (UTF)     │ largo (4)    │ datos (largo)    │
 //   └──────────┴──────────────────┴──────────────┴──────────────────┘
+
 public class CodecPaquete {
 
     public void escribir(DataOutputStream salida, Paquete p) throws IOException {

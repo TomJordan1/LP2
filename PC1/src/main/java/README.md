@@ -14,7 +14,7 @@
 
 1. Panel **Maven** → 🔄 *Reload* (descarga OpenCV la primera vez).
 2. *Run* `servidor/MainServidor`.
-3. *Run* `cliente/MainCliente` (una vez por participante) → nombre, `localhost`, puerto `5000`.
+3. *Run* `cliente/MainCliente` (una vez por participante) → nombre, `localhost`, puerto `6767`.
 
 <br>
 

@@ -54,7 +54,7 @@ public class ConexionServidor implements SalidaPaquetes {
     public void cerrar() {
         cola.cerrar();
         try {
-            Thread.sleep(200);          // deja salir el último "SALIR"
+            Thread.sleep(200); // deja salir el último "SALIR"
             socket.close();
         } catch (IOException e) {
             // ya estaba cerrado

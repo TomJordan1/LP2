@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 
 // Atiende a UN participante de principio a fin (corre dentro del pool).
-//   TEXTO -> ProtocoloChat -> ServicioChat   (reglas del chat, semana 4)
+//   TEXTO -> ProtocoloChat -> ServicioChat   (reglas del chat)
 //   VIDEO / AUDIO -> SalaLlamada.retransmitir (solo si ya hizo LOGIN)
 public class ManejadorParticipante implements Runnable {
 

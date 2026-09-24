@@ -4,6 +4,7 @@ import excepciones.ComandoInvalidoException;
 
 // Comandos de CHAT que el cliente envía como texto (paquete TEXTO).
 // Cada uno sabe cuántos argumentos espera y cómo se escribe.
+
 public enum Comando {
     LOGIN(1, "LOGIN|usuario"),
     TXT(2, "TXT|destino|texto"),

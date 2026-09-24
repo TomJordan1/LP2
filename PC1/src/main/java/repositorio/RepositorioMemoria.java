@@ -44,8 +44,8 @@ public class RepositorioMemoria<T extends Identificable> implements Repositorio<
     @Override
     public List<T> listar() {
         List<T> copia = new ArrayList<>(datos.values());
-        copia.sort((a, b) -> Integer.compare(a.id(), b.id()));   // orden de llegada
-        return Collections.unmodifiableList(copia);              // nadie modifica el interno
+        copia.sort((a, b) -> Integer.compare(a.id(), b.id())); // orden de llegada
+        return Collections.unmodifiableList(copia); // nadie modifica el interno
     }
 
     @Override

@@ -14,9 +14,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 // Reproduce a TODOS los demás por un solo parlante sumando sus voces.
 //
-//   ana   ──► [cola ana]   ─┐
-//   bruno ──► [cola bruno] ─┼──► suma muestra a muestra ──► parlante
-//   carla ──► [cola carla] ─┘      (cada 40 ms)
+//   tom   ──► [cola tom]   ─┐
+//   raul ──► [cola raul] ─┼──► suma muestra a muestra ──► parlante
+//   ricardo ──► [cola ricardo] ─┘      (cada 40 ms)
 //
 // Cada cola es un BlockingQueue (semana 3) y el mapa es concurrente:
 // el hilo receptor produce, este hilo consume.

@@ -13,7 +13,7 @@
           │       │            y lo reenvía a los demás      │
           │  MainCliente (el anfitrión también participa)    │
           └───────▲───────────────▲───────────────▲─────────┘
-                  │ TCP :5000     │               │
+                  │ TCP :6767     │               │
             laptop Bruno    laptop Carla     laptop Dario
             (MainCliente)   (MainCliente)    (MainCliente)
 ```
@@ -58,22 +58,22 @@ Clonar el repositorio, abrir `Tareas` en IntelliJ, recargar Maven y ejecutar los
 **Con el jar (CMD):**
 
 ```bat
-java -cp videollamada-windows-x86_64.jar servidor.MainServidor 5000
+java -cp videollamada-windows-x86_64.jar servidor.MainServidor 6767
 ```
 
 La consola muestra algo así; **anota la IP** que corresponda a tu forma de conexión (§5):
 
 ```
  Comparte una de estas direcciones:
-   192.168.1.34 : 5000   (Wi-Fi)
-   100.101.12.7 : 5000   (Tailscale)
+   192.168.1.34 : 6767   (Wi-Fi)
+   100.101.12.7 : 6767   (Tailscale)
 ```
 
 **Firewall de Windows:** la primera vez aparece un aviso para *Java(TM) Platform* → marca **Redes privadas y públicas** → *Permitir*.
 Si no apareció, en CMD **como administrador**:
 
 ```bat
-netsh advfirewall firewall add rule name="Videollamada POO" dir=in action=allow protocol=TCP localport=5000
+netsh advfirewall firewall add rule name="Videollamada POO" dir=in action=allow protocol=TCP localport=6767
 ```
 
 <br>
@@ -86,7 +86,7 @@ netsh advfirewall firewall add rule name="Videollamada POO" dir=in action=allow 
 | Todos en la **misma red WiFi** (casa, laboratorio UNI) | Nada más que el firewall (§4) | IP `192.168.x.x` / `10.x.x.x` que muestra el servidor |
 | **Casas distintas, todos con Windows** | **Radmin VPN** (gratis): el anfitrión crea una red con nombre y clave; los demás se unen con esos datos | IP `26.x.x.x` que Radmin le da al anfitrión |
 | **Casas distintas, sistemas mezclados** | **Tailscale** (gratis): todos instalan y entran; el anfitrión invita a los demás o usa *Share* sobre su PC | IP `100.x.x.x` de Tailscale del anfitrión |
-| **Nadie más quiere instalar nada** | **playit.gg** (gratis) en la PC del anfitrión: crear túnel **TCP** hacia el puerto local `5000` | La dirección y el puerto que da playit (ej. `abc.gl.at.ply.gg` y `12345`) |
+| **Nadie más quiere instalar nada** | **playit.gg** (gratis) en la PC del anfitrión: crear túnel **TCP** hacia el puerto local `6767` | La dirección y el puerto que da playit (ej. `abc.gl.at.ply.gg` y `12345`) |
 | IP pública + abrir puerto en el router | ⚠️ No recomendado: muchas conexiones en Perú usan CGNAT (no funciona) y expone tu PC | Tu IP pública |
 
 > Los planes gratuitos cambian; revisa los límites de usuarios de cada servicio antes de la reunión.
@@ -104,7 +104,7 @@ netsh advfirewall firewall add rule name="Videollamada POO" dir=in action=allow 
 |---|---|---|
 | Tu nombre | `bruno` | 3–15 letras, números o `_`; no se puede repetir |
 | Servidor | `192.168.1.34` | La de la tabla del §5 |
-| Puerto | `5000` | Con playit.gg, el puerto que te dio |
+| Puerto | `6767` | Con playit.gg, el puerto que te dio |
 | Cámara | *Cámara 0 (integrada)* | Si falla, entra con cámara simulada automáticamente |
 
 3. **Mac:** la primera vez acepta el permiso de **Cámara** y **Micrófono** (Configuración → Privacidad y seguridad).

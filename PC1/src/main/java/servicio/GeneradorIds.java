@@ -2,7 +2,7 @@ package servicio;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-// Contador compartido de IDs (recurso compartido de la semana 2).
+// Contador compartido de IDs .
 // Varios hilos piden IDs a la vez: sin lock, dos mensajes podrían recibir el mismo ID.
 public class GeneradorIds {
 

@@ -2,7 +2,6 @@ package servicio;
 
 import modelo.Mensaje;
 
-// Contrato de salida hacia UN usuario conectado (DIP).
 // El servicio no sabe si detrás hay un socket TCP o una lista de prueba.
 public interface Buzon {
 

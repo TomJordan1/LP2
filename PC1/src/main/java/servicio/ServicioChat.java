@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 // - quién puede conectarse
 // - a quién se entrega cada mensaje
 // - qué se guarda en el historial
-// No sabe nada de sockets ni del formato del protocolo (SRP + DIP).
+
 public class ServicioChat {
 
     private static final int MIN_NOMBRE = 3;

@@ -3,7 +3,7 @@ package protocolo;
 import java.nio.charset.StandardCharsets;
 
 // Unidad que viaja por el socket: tipo + quién lo origina + bytes.
-// Inmutable. El texto del chat de la semana 4 viaja DENTRO de un paquete TEXTO.
+// Inmutable. El texto del chat viaja DENTRO de un paquete TEXTO.
 public final class Paquete {
 
     private final TipoPaquete tipo;

@@ -13,6 +13,7 @@ import java.io.DataOutputStream;
 // - Para el ServicioChat es un Buzon (recibe mensajes de chat).
 // - Para la SalaLlamada es el destino de video y audio.
 // Por dentro usa una ColaSalida con su propio hilo escritor.
+
 public class CanalParticipante implements Buzon {
 
     private final ColaSalida cola;

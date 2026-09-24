@@ -11,7 +11,7 @@
  ┌──────────────────────────────────────┐                 ┌──────────────────────────────────┐
  │ CamaraOpenCV ─► TransmisorVideo ─┐    │                 │ ServidorLlamada                  │
  │   (hilo Camara)   JPEG           │    │                 │  accept ─► Semaphore ─► pool     │
- │ CapturadorAudio ─────────────────┤    │   TCP :5000     │           │                      │
+ │ CapturadorAudio ─────────────────┤    │   TCP :6767     │           │                      │
  │   (hilo Microfono)  PCM          ▼    │   Paquetes      │  ManejadorParticipante (1/persona)│
  │ PanelChat ─► ClienteLlamada ─► ColaSalida ════════════► │   ├─ TEXTO ─► ProtocoloChat       │
  │                                (hilo Salida)            │   │           └► ServicioChat     │

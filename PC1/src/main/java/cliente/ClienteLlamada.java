@@ -214,7 +214,7 @@ public class ClienteLlamada implements EventosLlamada, AccionesUsuario {
         mezclador.detener();
         conexion.cerrar();
         try {
-            Thread.sleep(300);          // deja que la cámara se libere
+            Thread.sleep(300); // deja que la cámara se libere
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

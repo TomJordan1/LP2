@@ -1,14 +1,10 @@
 package servidor;
 
-// ============================================================
-// POO II - Semana 4 - PC1: Chat + Videollamada (hasta 6 personas)
-// ------------------------------------------------------------
 // Servidor central: recibe chat, video y audio de cada participante
 // y lo reenvía a los demás. NO usa cámara ni micrófono.
-// Uso:  MainServidor [puerto]      (por defecto 5000)
+// Uso:  MainServidor [puerto]      (por defecto 6767)
 // Los participantes se conectan con cliente.MainCliente
 // indicando la IP que este programa muestra al arrancar.
-// ============================================================
 
 import modelo.Mensaje;
 import protocolo.ConfiguracionRed;

@@ -2,7 +2,6 @@ package servicio;
 
 import modelo.MensajeTexto;
 
-// Única responsabilidad (SRP): construir mensajes con un ID nuevo.
 // Las validaciones viven en los constructores de cada mensaje.
 public class FabricaMensajes {
 

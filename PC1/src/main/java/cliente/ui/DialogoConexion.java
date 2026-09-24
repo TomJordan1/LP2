@@ -67,7 +67,7 @@ public final class DialogoConexion {
         } catch (NumberFormatException e) {
             DatosConexion corregidos = new DatosConexion(nombre.getText().trim(), servidor.getText().trim(),
                     ConfiguracionRed.PUERTO_DEFECTO, indice);
-            return pedir("El puerto debe ser un numero (ej. 5000).", corregidos);
+            return pedir("El puerto debe ser un numero (ej. 6767).", corregidos);
         }
     }
 }
