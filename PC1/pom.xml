@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uni.edu.pe</groupId>
+    <artifactId>Tareas</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Sistema operativo para las librerias nativas de OpenCV.
+             windows-x86_64 | macosx-arm64 (Mac M1-M4) | macosx-x86_64 (Mac Intel) | linux-x86_64
+             Cambiar aqui y recargar Maven, o usar: mvn package -Dplataforma=macosx-arm64 -->
+        <plataforma>windows-x86_64</plataforma>
+        <javacv.version>1.5.10</javacv.version>
+    </properties>
+
+    <dependencies>
+        <!-- JavaCV: envoltorio Java de OpenCV y FFmpeg (solo clases Java) -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv</artifactId>
+            <version>${javacv.version}</version>
+        </dependency>
+        <!-- Librerias nativas SOLO del sistema elegido (evita descargar ~500 MB de todos los SO) -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacpp</artifactId>
+            <version>${javacv.version}</version>
+            <classifier>${plataforma}</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.9.0-${javacv.version}</version>
+            <classifier>${plataforma}</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>openblas</artifactId>
+            <version>0.3.26-${javacv.version}</version>
+            <classifier>${plataforma}</classifier>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- mvn package  ->  target/videollamada-<plataforma>.jar (incluye todo, se ejecuta con java -jar) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>videollamada-${plataforma}</finalName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>cliente.MainCliente</mainClass>
+                                </transformer>
+                            </transformers>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
