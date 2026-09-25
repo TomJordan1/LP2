@@ -1,12 +1,8 @@
 package cliente;
 
-// ============================================================
-// POO II - Semana 4 - PC1: Chat + Videollamada
 // Cliente con ventana: video de hasta 6 personas, audio y chat.
 // 1) Ejecuta primero servidor.MainServidor (una sola PC)
 // 2) Cada participante ejecuta este Main y escribe nombre + IP del servidor
-// Ver GUIA_USO.md para conectarse desde otras laptops.
-// ============================================================
 
 import cliente.ui.DialogoConexion;
 import excepciones.ChatException;
