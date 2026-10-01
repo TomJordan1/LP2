@@ -1,4 +1,6 @@
-package TareaAbstractFactory;
+package pe.edu.uni.menu.variantes.amazonica;
+
+import pe.edu.uni.menu.producto.Entrada;
 
 public class EntradaAmazonica implements Entrada{
     @Override

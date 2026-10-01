@@ -1,4 +1,6 @@
-package TareaAbstractFactory;
+package pe.edu.uni.menu.variantes.criolla;
+
+import pe.edu.uni.menu.producto.Entrada;
 
 public class EntradaCriolla implements Entrada{
     @Override

@@ -1,4 +1,6 @@
-package TareaAbstractFactory;
+package pe.edu.uni.menu.variantes.criolla;
+
+import pe.edu.uni.menu.producto.Fondo;
 
 public class FondoCriollo implements Fondo{
     @Override
