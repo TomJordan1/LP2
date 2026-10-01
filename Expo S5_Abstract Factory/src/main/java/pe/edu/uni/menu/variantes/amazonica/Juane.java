@@ -3,8 +3,10 @@ package pe.edu.uni.menu.variantes.amazonica;
 import pe.edu.uni.menu.producto.Bebida;
 import pe.edu.uni.menu.producto.Fondo;
 
-/** PRODUCTO CONCRETO (package-private): fondo Selva (amazónica). Solo FabricaAmazonica lo instancia. */
-class Juane implements Fondo {
+/**
+ * Fondo de la familia amazónica.
+ */
+public class Juane implements Fondo {
 
     @Override
     public String getNombre() {

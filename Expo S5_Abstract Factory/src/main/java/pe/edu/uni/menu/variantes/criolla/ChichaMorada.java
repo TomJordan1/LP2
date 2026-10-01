@@ -2,8 +2,10 @@ package pe.edu.uni.menu.variantes.criolla;
 
 import pe.edu.uni.menu.producto.Bebida;
 
-/** PRODUCTO CONCRETO (package-private): bebida Costa (criolla). Solo FabricaCriolla la instancia. */
-class ChichaMorada implements Bebida {
+/**
+ * Bebida de la familia criolla.
+ */
+public class ChichaMorada implements Bebida {
 
     @Override
     public String getNombre() {

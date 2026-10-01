@@ -5,17 +5,14 @@ import pe.edu.uni.menu.producto.Entrada;
 import pe.edu.uni.menu.producto.Fondo;
 
 /**
- * Objeto que agrupa los tres productos de UNA familia.
- *
- * Solo guarda abstracciones (Entrada, Fondo, Bebida). Es inmutable
- * (campos final, sin setters): una vez armado el menú, nadie puede
- * cambiarle la bebida por la de otra región.
+ * Reúne los productos que forman el menú preparado por el restaurante.
+ * No participa en la creación de los productos; solo los agrupa para presentarlos juntos.
  */
-public final class MenuDelDia {
+public class MenuDelDia {
 
-    private final Entrada entrada;
-    private final Fondo fondo;
-    private final Bebida bebida;
+    private Entrada entrada;
+    private Fondo fondo;
+    private Bebida bebida;
 
     public MenuDelDia(Entrada entrada, Fondo fondo, Bebida bebida) {
         this.entrada = entrada;
@@ -23,11 +20,10 @@ public final class MenuDelDia {
         this.bebida = bebida;
     }
 
-    /** Arma el texto del menú usando solo métodos de las interfaces. */
     public String presentar() {
         return "  " + entrada.servir() + System.lineSeparator()
              + "  " + fondo.servir() + System.lineSeparator()
              + "  " + bebida.servir() + System.lineSeparator()
-             + "  Maridaje: " + fondo.acompanarCon(bebida);
+             + "  Acompañamiento: " + fondo.acompanarCon(bebida);
     }
 }

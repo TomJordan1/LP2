@@ -6,8 +6,8 @@ import pe.edu.uni.menu.producto.Entrada;
 import pe.edu.uni.menu.producto.Fondo;
 
 /**
- * FÁBRICA CONCRETA de la variante Sierra (andina).
- * Misma estructura que FabricaCriolla: solo cambian los productos que crea.
+ * Fábrica concreta para la familia andina.
+ * Aquí se decide qué implementación corresponde a cada tipo de producto de esta variante.
  */
 public class FabricaAndina implements FabricaDeMenu {
 

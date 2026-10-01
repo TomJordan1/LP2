@@ -2,8 +2,10 @@ package pe.edu.uni.menu.variantes.andina;
 
 import pe.edu.uni.menu.producto.Bebida;
 
-/** PRODUCTO CONCRETO (package-private): bebida Sierra (andina). Solo FabricaAndina la instancia. */
-class ApiMorado implements Bebida {
+/**
+ * Bebida de la familia andina.
+ */
+public class ApiMorado implements Bebida {
 
     @Override
     public String getNombre() {

@@ -1,8 +1,8 @@
 package pe.edu.uni.menu.config;
 
 /**
- * Las VARIANTES disponibles de la familia de productos.
- * Usar un enum en vez de Strings evita errores de tipeo ("Criola").
+ * Opciones de región disponibles en el ejemplo.
+ * El enum evita trabajar con textos distintos para representar una misma opción.
  */
 public enum Region {
 
@@ -10,7 +10,7 @@ public enum Region {
     ANDINA("Sierra"),
     AMAZONICA("Selva");
 
-    private final String zona;
+    private String zona;
 
     Region(String zona) {
         this.zona = zona;
@@ -18,15 +18,5 @@ public enum Region {
 
     public String getZona() {
         return zona;
-    }
-
-    /** Convierte el texto ingresado por el usuario en una Region válida. */
-    public static Region desdeTexto(String texto) {
-        try {
-            return Region.valueOf(texto.trim().toUpperCase());
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Región desconocida: " + texto
-                    + ". Usa CRIOLLA, ANDINA o AMAZONICA.");
-        }
     }
 }

@@ -3,8 +3,10 @@ package pe.edu.uni.menu.variantes.andina;
 import pe.edu.uni.menu.producto.Bebida;
 import pe.edu.uni.menu.producto.Fondo;
 
-/** PRODUCTO CONCRETO (package-private): fondo Sierra (andina). Solo FabricaAndina lo instancia. */
-class Pachamanca implements Fondo {
+/**
+ * Fondo de la familia andina.
+ */
+public class Pachamanca implements Fondo {
 
     @Override
     public String getNombre() {

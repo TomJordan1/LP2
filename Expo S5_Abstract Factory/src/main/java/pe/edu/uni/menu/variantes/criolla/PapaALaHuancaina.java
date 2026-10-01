@@ -3,14 +3,9 @@ package pe.edu.uni.menu.variantes.criolla;
 import pe.edu.uni.menu.producto.Entrada;
 
 /**
- * PRODUCTO CONCRETO: entrada de la variante Costa (criolla).
- *
- * Es "package-private" (sin la palabra public): SOLO las clases de este
- * mismo paquete pueden hacer new PapaALaHuancaina(). En la práctica, la única que lo
- * hace es FabricaCriolla. Así el compilador IMPIDE que el cliente cree
- * productos sueltos y mezcle regiones por accidente.
+ * Entrada de la familia criolla.
  */
-class PapaALaHuancaina implements Entrada {
+public class PapaALaHuancaina implements Entrada {
 
     @Override
     public String getNombre() {

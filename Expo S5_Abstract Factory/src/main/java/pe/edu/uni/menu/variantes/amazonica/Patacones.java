@@ -2,8 +2,10 @@ package pe.edu.uni.menu.variantes.amazonica;
 
 import pe.edu.uni.menu.producto.Entrada;
 
-/** PRODUCTO CONCRETO (package-private): entrada Selva (amazónica). Solo FabricaAmazonica la instancia. */
-class Patacones implements Entrada {
+/**
+ * Entrada de la familia amazónica.
+ */
+public class Patacones implements Entrada {
 
     @Override
     public String getNombre() {

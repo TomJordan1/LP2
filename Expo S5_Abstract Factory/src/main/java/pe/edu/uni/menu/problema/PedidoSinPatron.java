@@ -1,34 +1,24 @@
 package pe.edu.uni.menu.problema;
 
 /**
- * ANTES DEL PATRÓN: así se vería el código sin Abstract Factory.
- * Esta clase existe solo para contrastar en la exposición. NO es un modelo a seguir.
- *
- * Problemas que muestra:
- *   1. El mismo if/else de regiones se repite en CADA método de creación.
- *      Agregar una región obliga a tocar todos esos métodos.
- *   2. Nada impide mezclar regiones: cada producto se pide por separado.
- *   3. El código que arma el pedido conoce todos los platos concretos.
+ * Versión sencilla del mismo problema sin usar Abstract Factory.
+ * Se incluye para observar cómo la elección de la región termina apareciendo en cada creación de producto.
  */
-public final class PedidoSinPatron {
-
-    private PedidoSinPatron() {
-    }
+public class PedidoSinPatron {
 
     public static void demostrar() {
         String region = "CRIOLLA";
 
         String entrada = crearEntrada(region);
         String fondo = crearFondo(region);
-        // Error humano: alguien cambió solo esta línea. El compilador no se queja.
-        String bebida = crearBebida("AMAZONICA");
+        String bebida = crearBebida(region);
 
+        System.out.println("\n--- Ejemplo sin Abstract Factory ---");
         System.out.println("  Entrada: " + entrada);
         System.out.println("  Fondo:   " + fondo);
-        System.out.println("  Bebida:  " + bebida + "   <-- ¡no combina con el resto!");
+        System.out.println("  Bebida:  " + bebida);
     }
 
-    // Cada método repite la misma decisión. Es la "explosión de if/else".
     private static String crearEntrada(String region) {
         if (region.equals("CRIOLLA")) {
             return "Papa a la Huancaína";

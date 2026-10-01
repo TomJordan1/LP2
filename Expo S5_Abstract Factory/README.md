@@ -1,55 +1,64 @@
-# Menú Regional — Patrón Abstract Factory (Java 11+, Maven)
+# Menú Regional — Abstract Factory
 
-Proyecto de exposición. Un restaurante arma un **menú del día** (entrada + fondo + bebida)
-en tres variantes regionales. Los tres platos SIEMPRE son de la misma región, y se puede
-agregar una región nueva sin tocar el código del restaurante.
+Ejemplo en Java del patrón Abstract Factory aplicado a un restaurante que prepara un menú del día compuesto por entrada, fondo y bebida. El proyecto incluye tres variantes regionales: criolla, andina y amazónica.
 
-## Estructura (un paquete = una responsabilidad)
+La idea principal es que `Restaurante` trabaja con la interfaz `FabricaDeMenu`. Según la región seleccionada, se utiliza una fábrica concreta que crea los productos correspondientes a esa variante.
 
-```
+## Estructura
+
+```text
 src/main/java/pe/edu/uni/menu/
-├── producto/        Productos abstractos: Entrada, Fondo, Bebida (interfaces)
-├── fabrica/         Fábrica abstracta: FabricaDeMenu (interface)
-├── variantes/       Una subcarpeta por variante = fábrica concreta + sus productos
-│   ├── criolla/     FabricaCriolla + PapaALaHuancaina, LomoSaltado, ChichaMorada
-│   ├── andina/      FabricaAndina + ChocloConQueso, Pachamanca, ApiMorado
-│   └── amazonica/   FabricaAmazonica + Patacones, Juane, Aguajina
-├── cliente/         Restaurante (cliente) + MenuDelDia (agrupa la familia)
-├── config/          Region (enum) + SelectorDeFabrica (elige la fábrica al iniciar)
-├── problema/        PedidoSinPatron: el "antes", solo para contrastar
-└── app/             Main: punto de entrada
+├── producto/        Interfaces Entrada, Fondo y Bebida
+├── fabrica/         Interfaz FabricaDeMenu
+├── variantes/       Fábricas concretas y sus productos
+│   ├── criolla/
+│   ├── andina/
+│   └── amazonica/
+├── cliente/         Restaurante y MenuDelDia
+├── config/          Region y SelectorDeFabrica
+├── problema/        Ejemplo sencillo sin Abstract Factory
+└── app/             Main
 ```
 
-Matriz del patrón (filas = tipos de producto, columnas = variantes):
+## Familias de productos
 
-|            | Criolla           | Andina           | Amazónica  |
-|------------|-------------------|------------------|------------|
-| Entrada    | PapaALaHuancaina  | ChocloConQueso   | Patacones  |
-| Fondo      | LomoSaltado       | Pachamanca       | Juane      |
-| Bebida     | ChichaMorada      | ApiMorado        | Aguajina   |
+| Producto | Criolla | Andina | Amazónica |
+|---|---|---|---|
+| Entrada | PapaALaHuancaina | ChocloConQueso | Patacones |
+| Fondo | LomoSaltado | Pachamanca | Juane |
+| Bebida | ChichaMorada | ApiMorado | Aguajina |
 
-## Ejecutar
+## Relación con Abstract Factory
 
-**IntelliJ:** abrir la carpeta (detecta el `pom.xml`) → ejecutar `app/Main`.
-Para pasar una región: *Run → Edit Configurations → Program arguments* = `ANDINA`.
+- `FabricaDeMenu` representa la fábrica abstracta.
+- `FabricaCriolla`, `FabricaAndina` y `FabricaAmazonica` son las fábricas concretas.
+- `Entrada`, `Fondo` y `Bebida` representan los productos abstractos.
+- Las clases de cada paquete regional son los productos concretos.
+- `Restaurante` actúa como cliente y utiliza la fábrica recibida para preparar el menú.
 
-**Terminal (Windows):**
+`SelectorDeFabrica` se encarga de escoger la fábrica concreta según la región elegida en `Main`. Esta clase forma parte de la configuración del ejemplo y no del patrón en sí.
+
+## Ejecutar en IntelliJ IDEA
+
+1. Descomprimir el proyecto.
+2. Abrir en IntelliJ IDEA la carpeta que contiene `pom.xml` y `src`.
+3. Si IntelliJ muestra la opción de cargar el proyecto Maven, aceptarla.
+4. Ejecutar `pe.edu.uni.menu.app.Main`.
+
+El programa muestra un menú con las tres regiones y una cuarta opción que permite comparar el ejemplo con una versión sencilla sin Abstract Factory.
+
+## Compilar con Maven
+
+Desde la carpeta que contiene `pom.xml`:
+
+```bash
+mvn clean compile
 ```
-chcp 65001
-run.bat            (menú interactivo)
-run.bat CRIOLLA    (región directa)
-```
 
-**Terminal (Linux/Mac):** `./run.sh` o `./run.sh AMAZONICA`
+El proyecto utiliza Java 11 y no necesita dependencias externas.
 
-## Demo en vivo: agregar la región Norteña (Principio Abierto/Cerrado)
-1. Crear paquete `variantes/nortena/` con `CevicheDeConchas`, `ArrozConPato`, `ChichaDeJora`
-   (package-private, implementan Entrada/Fondo/Bebida) y `FabricaNortena` (public).
-2. Agregar `NORTENA("Norte")` al enum `Region`.
-3. Agregar `case NORTENA: return new FabricaNortena();` en `SelectorDeFabrica`.
+## Extender el ejemplo
 
-`Restaurante`, `MenuDelDia` y las interfaces **no se tocan**.
+Para agregar otra variante regional se puede crear un nuevo paquete dentro de `variantes`, implementar sus productos y añadir una fábrica que implemente `FabricaDeMenu`. Después, la nueva región debe incorporarse a la selección utilizada por la aplicación.
 
-## Contra-demo: agregar un nuevo TIPO de producto (Postre)
-Obliga a modificar `FabricaDeMenu` y **todas** las fábricas concretas. Es la desventaja
-clásica del patrón: es fácil agregar variantes, costoso agregar tipos de producto.
+Si se quisiera agregar un nuevo tipo de producto, por ejemplo `Postre`, habría que ampliar `FabricaDeMenu` y las fábricas concretas para contemplarlo. Esto permite mostrar una de las características habituales del patrón: resulta más directo añadir nuevas familias que cambiar la estructura de productos existente.

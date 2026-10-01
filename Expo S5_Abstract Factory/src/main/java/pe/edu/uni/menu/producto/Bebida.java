@@ -1,7 +1,8 @@
 package pe.edu.uni.menu.producto;
 
 /**
- * PRODUCTO ABSTRACTO #3 de la familia "menú".
+ * Producto abstracto para las bebidas.
+ * Las fábricas concretas devuelven implementaciones de esta interfaz según su región.
  */
 public interface Bebida {
 
